@@ -1,4 +1,4 @@
-# Running React Native Everywhere
+# Running React Native everywhere
 
 - [Android and iOS](/docs/running-react-native-everywhere/mobile.md)
 - [Web](/docs/running-react-native-everywhere/web.md)
