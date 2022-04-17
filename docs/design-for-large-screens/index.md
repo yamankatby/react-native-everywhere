@@ -1,1 +1,0 @@
-# Design for large screens
