@@ -85,7 +85,7 @@ export default function MyApp({ Component, pageProps }) {
     <div className="flex justify-center">
       <Sidebar />
       <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
-        <main className="flex-1">
+        <main className="prose max-w-none flex-1">
           <Component {...pageProps} />
         </main>
         <Footer />
