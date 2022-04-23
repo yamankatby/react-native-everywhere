@@ -93,6 +93,36 @@ const Sidebar = () => (
   </aside>
 );
 
+const Feedback = () => (
+  <div className="flex items-end justify-between">
+    <div className="flex flex-col">
+      <h5>Was this helpful?</h5>
+      <ul className="mt-2 grid grid-cols-4 gap-6">
+        <li>
+          <img src="https://assets.vercel.com/twemoji/1f62d.svg" className="w-6" alt="💭" />
+        </li>
+        <li>
+          <img src="https://assets.vercel.com/twemoji/1f615.svg" className="w-6" alt="💭" />
+        </li>
+        <li>
+          <img src="https://assets.vercel.com/twemoji/1f600.svg" className="w-6" alt="💭" />
+        </li>
+        <li>
+          <img src="https://assets.vercel.com/twemoji/1f929.svg" className="w-6" alt="💭" />
+        </li>
+      </ul>
+    </div>
+    <ul className="flex flex-col items-end">
+      <li>
+        <a href="">Edit this article on GitHub</a>
+      </li>
+      <li className="mt-1">
+        <a href="">Suggest a change</a>
+      </li>
+    </ul>
+  </div>
+);
+
 const Pager = () => (
   <nav>
     <ul className="grid grid-cols-2 gap-6">
@@ -152,6 +182,7 @@ export default function MyApp({ Component, pageProps }) {
         <main className="prose max-w-none flex-1">
           <Component {...pageProps} />
         </main>
+        <Feedback />
         <hr className="my-6" />
         <Pager />
         <hr className="my-6" />
