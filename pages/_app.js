@@ -58,14 +58,37 @@ const Sidebar = () => (
   </aside>
 );
 
+const Footer = () => (
+  <footer className="flex flex-col items-center">
+    <ul className="flex">
+      <li>
+        <a href="https://github.com/yamankatby/react-native-beyond-mobile">Source code</a>
+      </li>
+      <li className="ml-10">
+        <a href="https://github.com/yamankatby/react-native-beyond-mobile/issues/new/choose">Report issue</a>
+      </li>
+      <li className="ml-10">
+        <a href="https://github.com/yamankatby/react-native-beyond-mobile/discussions">Ask question</a>
+      </li>
+    </ul>
+    <p className="mt-3">
+      Apr 1, 2022 at <a href="https://invertase.io">Invertase</a>
+    </p>
+    <p className="mt-3">
+      Made with ❤️ by <a href="https://twitter.com/yamankatby">Yaman KATBY</a>
+    </p>
+  </footer>
+);
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <div className="flex justify-center">
       <Sidebar />
-      <div className="flex min-h-screen max-w-3xl flex-1 flex-col">
+      <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
         <main className="flex-1">
           <Component {...pageProps} />
         </main>
+        <Footer />
       </div>
     </div>
   );
