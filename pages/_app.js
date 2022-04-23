@@ -28,34 +28,32 @@ const index = [
 ];
 
 const SidebarItem = ({ title, href }) => (
-  <li className="mt-2">
-    <Link href={href}>
-      <a>{title}</a>
-    </Link>
-  </li>
+  <Link href={href}>
+    <a>{title}</a>
+  </Link>
 );
 
 const SidebarGroup = ({ items }) => (
-  <li className="mt-6">
+  <>
     <h3 className="text-sm uppercase text-gray-500">{items[0].title}</h3>
-    <ul className="border-l pl-6">
+    <ul className="border-l pl-6 pb-2.5">
       {items.slice(1).map((item) => (
-        <SidebarItem key={item.href} title={item.title} href={items[0].href + item.href} />
+        <li key={item.href} className="mt-2.5">
+          <SidebarItem title={item.title} href={items[0].href + item.href} />
+        </li>
       ))}
     </ul>
-  </li>
+  </>
 );
 
 const Sidebar = () => (
-  <aside className="max-w-xs flex-1 border-r px-6 py-4">
+  <aside className="max-w-xs flex-1 border-r px-6">
     <ul>
-      {index.map((item) =>
-        Array.isArray(item) ? (
-          <SidebarGroup key={item[0].href} items={item} />
-        ) : (
-          <SidebarItem key={item.href} title={item.title} href={item.href} />
-        )
-      )}
+      {index.map((item) => (
+        <li key={item.href || item[0].href} className="mt-6">
+          {Array.isArray(item) ? <SidebarGroup items={item} /> : <SidebarItem title={item.title} href={item.href} />}
+        </li>
+      ))}
     </ul>
   </aside>
 );
