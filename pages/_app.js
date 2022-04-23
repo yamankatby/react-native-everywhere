@@ -16,7 +16,7 @@ const index = [
     { title: 'Building for large screens', href: '/building-for-large-screens' },
     { title: 'Overview', href: '/' },
     { title: 'Responsive Design', href: '/responsive-design' },
-    { title: 'Layout', href: '/layout' },
+    { title: 'Layouts', href: '/layouts ' },
   ],
   [
     { title: 'Studies', href: '/studies' },
