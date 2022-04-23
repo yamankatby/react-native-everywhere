@@ -28,7 +28,7 @@ const index = [
 ];
 
 const SidebarItem = ({ title, href }) => (
-  <li>
+  <li className="mt-2">
     <Link href={href}>
       <a>{title}</a>
     </Link>
@@ -36,9 +36,9 @@ const SidebarItem = ({ title, href }) => (
 );
 
 const SidebarGroup = ({ items }) => (
-  <li>
-    <h3>{items[0].title}</h3>
-    <ul>
+  <li className="mt-6">
+    <h3 className="text-sm uppercase text-gray-500">{items[0].title}</h3>
+    <ul className="border-l pl-6">
       {items.slice(1).map((item) => (
         <SidebarItem key={item.href} title={item.title} href={items[0].href + item.href} />
       ))}
@@ -47,7 +47,7 @@ const SidebarGroup = ({ items }) => (
 );
 
 const Sidebar = () => (
-  <aside>
+  <aside className="max-w-xs flex-1 border-r px-6 py-4">
     <ul>
       {index.map((item) =>
         Array.isArray(item) ? (
@@ -62,9 +62,13 @@ const Sidebar = () => (
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="flex justify-center">
       <Sidebar />
-      <Component {...pageProps} />
+      <div className="flex min-h-screen max-w-3xl flex-1 flex-col">
+        <main className="flex-1">
+          <Component {...pageProps} />
+        </main>
+      </div>
     </div>
   );
 }
