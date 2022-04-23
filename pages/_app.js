@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import SunIcon from '@heroicons/react/outline/SunIcon';
+import ChevronLeftIcon from '@heroicons/react/outline/ChevronLeftIcon';
+import ChevronRightIcon from '@heroicons/react/outline/ChevronRightIcon';
 import '../styles/globals.css';
 
 const index = [
@@ -91,6 +93,35 @@ const Sidebar = () => (
   </aside>
 );
 
+const Pager = () => (
+  <nav>
+    <ul className="grid grid-cols-2 gap-6">
+      <li className="col-span-1">
+        <Link href="">
+          <a className="flex items-center">
+            <ChevronLeftIcon className="w-5 text-gray-500" />
+            <div className="ml-6 flex flex-col">
+              <span className="text-sm uppercase text-gray-500">Prev</span>
+              <span className="font-medium text-indigo-500">Overview</span>
+            </div>
+          </a>
+        </Link>
+      </li>
+      <li className="col-span-1">
+        <Link href="">
+          <a className="flex items-center justify-end">
+            <div className="mr-6 flex flex-col items-end">
+              <span className="text-sm uppercase text-gray-500">Next</span>
+              <span className="font-medium text-indigo-500">Getting Started</span>
+            </div>
+            <ChevronRightIcon className="w-5 text-gray-500" />
+          </a>
+        </Link>
+      </li>
+    </ul>
+  </nav>
+);
+
 const Footer = () => (
   <footer className="flex flex-col items-center">
     <ul className="flex">
@@ -121,6 +152,9 @@ export default function MyApp({ Component, pageProps }) {
         <main className="prose max-w-none flex-1">
           <Component {...pageProps} />
         </main>
+        <hr className="my-6" />
+        <Pager />
+        <hr className="my-6" />
         <Footer />
       </div>
     </div>
