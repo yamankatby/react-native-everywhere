@@ -3092,6 +3092,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-themes@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "next-themes@npm:0.1.1"
+  peerDependencies:
+    next: ">=11.1.1"
+    react: "*"
+    react-dom: "*"
+  checksum: 226f6af92f3ccccd23c21cd0605aee4fef3482fb8442957a8bae220051af587b63b9fa0b1c8c1c859a7f60b7c8380ebcec98adb3575c903611251917846215e4
+  languageName: node
+  linkType: hard
+
 "next@npm:12.1.5":
   version: 12.1.5
   resolution: "next@npm:12.1.5"
@@ -3635,6 +3646,7 @@ __metadata:
     eslint: 8.14.0
     eslint-config-next: 12.1.5
     next: 12.1.5
+    next-themes: ^0.1.1
     postcss: ^8.4.12
     prettier: ^2.6.2
     prettier-plugin-tailwindcss: ^0.1.10

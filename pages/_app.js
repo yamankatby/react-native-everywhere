@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import SunIcon from '@heroicons/react/outline/SunIcon';
+import MoonIcon from '@heroicons/react/outline/MoonIcon';
 import ChevronLeftIcon from '@heroicons/react/outline/ChevronLeftIcon';
 import ChevronRightIcon from '@heroicons/react/outline/ChevronRightIcon';
 import '../styles/globals.css';
+import { ThemeProvider, useTheme } from 'next-themes';
 
 const index = [
   { title: 'Getting Started', href: '/' },
@@ -68,30 +70,42 @@ const SidebarGroup = ({ items }) => (
   </>
 );
 
-const Sidebar = () => (
-  <aside className="flex max-w-xs flex-1 flex-col justify-between border-r px-6 pb-6">
-    <ul>
-      {index.map((item) => (
-        <li key={item.href || item[0].href} className="mt-6">
-          {Array.isArray(item) ? <SidebarGroup items={item} /> : <SidebarItem title={item.title} href={item.href} />}
-        </li>
-      ))}
-    </ul>
-    <div className="mt-6 flex items-center">
-      <a className="flex items-center" href="https://github.com/yamankatby/react-native-beyond-mobile" target="_blank">
-        <GitHub />
-        <span className="ml-2">GitHub</span>
-      </a>
-      <a className="ml-6 flex items-center" href="https://twitter.com/yamankatby" target="_blank">
-        <Twitter />
-        <span className="ml-2">Twitter</span>
-      </a>
-      <button className="ml-auto">
-        <SunIcon className="w-6" />
-      </button>
-    </div>
-  </aside>
-);
+const Sidebar = () => {
+  const { setTheme, resolvedTheme } = useTheme();
+  return (
+    <aside className="flex max-w-xs flex-1 flex-col justify-between border-r px-6 pb-6">
+      <ul>
+        {index.map((item) => (
+          <li key={item.href || item[0].href} className="mt-6">
+            {Array.isArray(item) ? <SidebarGroup items={item} /> : <SidebarItem title={item.title} href={item.href} />}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 flex items-center">
+        <a
+          className="flex items-center"
+          href="https://github.com/yamankatby/react-native-beyond-mobile"
+          target="_blank"
+        >
+          <GitHub />
+          <span className="ml-2">GitHub</span>
+        </a>
+        <a className="ml-6 flex items-center" href="https://twitter.com/yamankatby" target="_blank">
+          <Twitter />
+          <span className="ml-2">Twitter</span>
+        </a>
+        <button
+          className="ml-auto"
+          onClick={() => {
+            setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
+          }}
+        >
+          {resolvedTheme === 'light' ? <MoonIcon className="w-6" /> : <SunIcon className="w-6" />}
+        </button>
+      </div>
+    </aside>
+  );
+};
 
 const Header = () => (
   <header className="mb-6 flex items-center justify-between">
@@ -191,19 +205,21 @@ const Footer = () => (
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <div className="flex justify-center">
-      <Sidebar />
-      <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
-        <Header />
-        <main className="prose max-w-none flex-1">
-          <Component {...pageProps} />
-        </main>
-        <Feedback />
-        <hr className="my-6" />
-        <Pager />
-        <hr className="my-6" />
-        <Footer />
+    <ThemeProvider attribute="class">
+      <div className="flex justify-center">
+        <Sidebar />
+        <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
+          <Header />
+          <main className="prose max-w-none flex-1 dark:prose-invert">
+            <Component {...pageProps} />
+          </main>
+          <Feedback />
+          <hr className="my-6" />
+          <Pager />
+          <hr className="my-6" />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
