@@ -69,7 +69,7 @@ const SidebarItem = ({ title, href }) => {
   const { pathname } = useRouter();
   return (
     <Link href={href}>
-      <a className={cx({ 'text-blue-600 dark:text-blue-400': href === pathname })}>{title}</a>
+      <a className={cx('hover:underline', { 'text-blue-600 dark:text-blue-400': href === pathname })}>{title}</a>
     </Link>
   );
 };
@@ -100,7 +100,7 @@ const Sidebar = () => {
       </ul>
       <div className="mt-6 flex items-center">
         <a
-          className="flex items-center"
+          className="flex items-center hover:underline"
           href="https://github.com/yamankatby/react-native-beyond-mobile"
           target="_blank"
           rel="noreferrer"
@@ -108,7 +108,12 @@ const Sidebar = () => {
           <GitHub />
           <span className="ml-2">GitHub</span>
         </a>
-        <a className="ml-6 flex items-center" href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer">
+        <a
+          className="ml-6 flex items-center hover:underline"
+          href="https://twitter.com/yamankatby"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Twitter />
           <span className="ml-2">Twitter</span>
         </a>
@@ -156,7 +161,9 @@ const Feedback = () => (
         </li>
       </ul>
     </div>
-    <a href="">Edit this article on GitHub</a>
+    <a href="" className="hover:underline">
+      Edit this article on GitHub
+    </a>
   </div>
 );
 
@@ -179,11 +186,11 @@ const Pager = () => {
         {prevRoute && (
           <li className="col-span-1">
             <Link href={prevRoute.href}>
-              <a className="flex items-center">
-                <ChevronLeftIcon className="w-5 text-gray-500" />
+              <a className="group flex items-center">
+                <ChevronLeftIcon className="w-5 text-gray-500 dark:text-gray-400" />
                 <div className="ml-6 flex flex-col">
-                  <span className="text-sm uppercase text-gray-500">Prev</span>
-                  <span className="text-blue-600 dark:text-blue-400">{prevRoute.title}</span>
+                  <span className="text-sm uppercase text-gray-500 dark:text-gray-400">Prev</span>
+                  <span className="text-blue-600 group-hover:underline dark:text-blue-400">{prevRoute.title}</span>
                 </div>
               </a>
             </Link>
@@ -192,12 +199,12 @@ const Pager = () => {
         {nextRoute && (
           <li className="col-span-1 col-start-2">
             <Link href={nextRoute.href}>
-              <a className="flex items-center justify-end">
+              <a className="group flex items-center justify-end">
                 <div className="mr-6 flex flex-col items-end">
-                  <span className="text-sm uppercase text-gray-500">Next</span>
-                  <span className="text-blue-600 dark:text-blue-400">{nextRoute.title}</span>
+                  <span className="text-sm uppercase text-gray-500 dark:text-gray-400">Next</span>
+                  <span className="text-blue-600 group-hover:underline dark:text-blue-400">{nextRoute.title}</span>
                 </div>
-                <ChevronRightIcon className="w-5 text-gray-500" />
+                <ChevronRightIcon className="w-5 text-gray-500 dark:text-gray-400" />
               </a>
             </Link>
           </li>
@@ -212,20 +219,25 @@ const Footer = () => (
     <div>
       <p>
         Apr 1, 2022 at{' '}
-        <a href="https://invertase.io" target="_blank" rel="noreferrer">
+        <a href="https://invertase.io" target="_blank" rel="noreferrer" className="hover:underline">
           Invertase
         </a>
       </p>
       <p className="mt-1">
         Made with ❤️ by{' '}
-        <a href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer">
+        <a href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer" className="hover:underline">
           Yaman KATBY
         </a>
       </p>
     </div>
     <ul className="flex">
       <li>
-        <a href="https://github.com/yamankatby/react-native-beyond-mobile" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/yamankatby/react-native-beyond-mobile"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
           Source code
         </a>
       </li>
@@ -234,12 +246,18 @@ const Footer = () => (
           href="https://github.com/yamankatby/react-native-beyond-mobile/issues/new/choose"
           target="_blank"
           rel="noreferrer"
+          className="hover:underline"
         >
           Report issue
         </a>
       </li>
       <li className="ml-6">
-        <a href="https://github.com/yamankatby/react-native-beyond-mobile/discussions" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/yamankatby/react-native-beyond-mobile/discussions"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline"
+        >
           Ask question
         </a>
       </li>
