@@ -1,16 +1,16 @@
 import Link from 'next/link';
-import SunIcon from '@heroicons/react/outline/SunIcon';
-import MoonIcon from '@heroicons/react/outline/MoonIcon';
-import ChevronLeftIcon from '@heroicons/react/outline/ChevronLeftIcon';
-import ChevronRightIcon from '@heroicons/react/outline/ChevronRightIcon';
-import '../styles/globals.css';
+import { useRouter } from 'next/router';
 import { ThemeProvider, useTheme } from 'next-themes';
+import cx from 'classnames';
+import { ChevronLeftIcon, ChevronRightIcon, MoonIcon, SunIcon } from '@heroicons/react/outline';
+import '../styles/globals.css';
+import { useMemo } from 'react';
 
 const index = [
   { title: 'Getting Started', href: '/' },
   [
     { title: 'Running React Native everywhere', href: '/running-react-native-everywhere' },
-    { title: 'Overview', href: '/' },
+    { title: 'Overview', href: '' },
     { title: 'Mobile (Android and iOS)', href: '/mobile' },
     { title: 'Web', href: '/web' },
     { title: 'Browser Extension', href: '/browser-extension' },
@@ -20,18 +20,32 @@ const index = [
   ],
   [
     { title: 'Building for large screens', href: '/building-for-large-screens' },
-    { title: 'Overview', href: '/' },
+    { title: 'Overview', href: '' },
     { title: 'Responsive Design', href: '/responsive-design' },
-    { title: 'Layouts', href: '/layouts ' },
+    { title: 'Layouts', href: '/layouts' },
   ],
   [
     { title: 'Studies', href: '/studies' },
-    { title: 'Overview', href: '/' },
+    { title: 'Overview', href: '' },
     { title: 'Habit Tracker', href: '/habit-tracker' },
     { title: 'Pomodoro - Time Tracker', href: '/pomodoro' },
   ],
   { title: 'Acknowledgments', href: '/acknowledgments' },
 ];
+
+const getRoutes = () => {
+  const routes = [];
+  index.forEach((item) => {
+    if (Array.isArray(item)) {
+      item.slice(1).forEach((subItem, index) => {
+        routes.push({ title: index === 0 ? item[0].title : subItem.title, href: item[0].href + subItem.href });
+      });
+    } else {
+      routes.push(item);
+    }
+  });
+  return routes;
+};
 
 const GitHub = () => (
   <svg className="w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,11 +65,14 @@ const Twitter = () => (
   </svg>
 );
 
-const SidebarItem = ({ title, href }) => (
-  <Link href={href}>
-    <a>{title}</a>
-  </Link>
-);
+const SidebarItem = ({ title, href }) => {
+  const { pathname } = useRouter();
+  return (
+    <Link href={href}>
+      <a className={cx({ 'text-blue-600 dark:text-blue-400': href === pathname })}>{title}</a>
+    </Link>
+  );
+};
 
 const SidebarGroup = ({ items }) => (
   <>
@@ -109,20 +126,15 @@ const Sidebar = () => {
 };
 
 const Header = () => (
-  <header className="mb-6 flex items-center justify-between">
-    <nav>
-      <ul className="flex">
-        <li className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">🏠</li>
-        <ChevronRightIcon className="mx-1 w-5" />
-        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">
-          Running React Native everywhere
-        </li>
-        <ChevronRightIcon className="mx-1 w-5" />
-        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">Mobile</li>
-      </ul>
-    </nav>
-    <button className="h-9 rounded-lg bg-indigo-500 px-2 text-white">Subscribe</button>
-  </header>
+  <nav className="mb-6">
+    <ul className="flex">
+      <li>🏠</li>
+      <ChevronRightIcon className="mx-3 w-5" />
+      <li>Running React Native everywhere</li>
+      <ChevronRightIcon className="mx-3 w-5" />
+      <li>Mobile</li>
+    </ul>
+  </nav>
 );
 
 const Feedback = () => (
@@ -144,45 +156,56 @@ const Feedback = () => (
         </li>
       </ul>
     </div>
-    <ul className="flex flex-col items-end">
-      <li>
-        <a href="">Edit this article on GitHub</a>
-      </li>
-      <li className="mt-1">
-        <a href="">Suggest a change</a>
-      </li>
-    </ul>
+    <a href="">Edit this article on GitHub</a>
   </div>
 );
 
-const Pager = () => (
-  <nav>
-    <ul className="grid grid-cols-2 gap-6">
-      <li className="col-span-1">
-        <Link href="">
-          <a className="flex items-center">
-            <ChevronLeftIcon className="w-5 text-gray-500" />
-            <div className="ml-6 flex flex-col">
-              <span className="text-sm uppercase text-gray-500">Prev</span>
-              <span className="font-medium text-indigo-500">Overview</span>
-            </div>
-          </a>
-        </Link>
-      </li>
-      <li className="col-span-1">
-        <Link href="">
-          <a className="flex items-center justify-end">
-            <div className="mr-6 flex flex-col items-end">
-              <span className="text-sm uppercase text-gray-500">Next</span>
-              <span className="font-medium text-indigo-500">Getting Started</span>
-            </div>
-            <ChevronRightIcon className="w-5 text-gray-500" />
-          </a>
-        </Link>
-      </li>
-    </ul>
-  </nav>
-);
+const Pager = () => {
+  const { pathname } = useRouter();
+
+  const prevRoute = useMemo(() => {
+    const routes = getRoutes();
+    return routes[routes.findIndex((route) => route.href === pathname) - 1];
+  }, [pathname]);
+
+  const nextRoute = useMemo(() => {
+    const routes = getRoutes();
+    return routes[routes.findIndex((route) => route.href === pathname) + 1];
+  }, [pathname]);
+
+  return (
+    <nav>
+      <ul className="grid grid-cols-2 gap-6">
+        {prevRoute && (
+          <li className="col-span-1">
+            <Link href={prevRoute.href}>
+              <a className="flex items-center">
+                <ChevronLeftIcon className="w-5 text-gray-500" />
+                <div className="ml-6 flex flex-col">
+                  <span className="text-sm uppercase text-gray-500">Prev</span>
+                  <span className="text-blue-600 dark:text-blue-400">{prevRoute.title}</span>
+                </div>
+              </a>
+            </Link>
+          </li>
+        )}
+        {nextRoute && (
+          <li className="col-span-1 col-start-2">
+            <Link href={nextRoute.href}>
+              <a className="flex items-center justify-end">
+                <div className="mr-6 flex flex-col items-end">
+                  <span className="text-sm uppercase text-gray-500">Next</span>
+                  <span className="text-blue-600 dark:text-blue-400">{nextRoute.title}</span>
+                </div>
+                <ChevronRightIcon className="w-5 text-gray-500" />
+              </a>
+            </Link>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
 
 const Footer = () => (
   <footer className="flex items-end justify-between">
@@ -193,7 +216,7 @@ const Footer = () => (
           Invertase
         </a>
       </p>
-      <p className="mt-2">
+      <p className="mt-1">
         Made with ❤️ by{' '}
         <a href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer">
           Yaman KATBY
