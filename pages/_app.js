@@ -160,30 +160,47 @@ const Breadcrumbs = () => {
   );
 };
 
-const Feedback = () => (
-  <div className="flex items-end justify-between">
-    <div className="flex flex-col">
-      <h5>Was this helpful?</h5>
-      <ul className="mt-2 grid grid-cols-4 gap-6">
-        <li>
-          <img src="https://assets.vercel.com/twemoji/1f62d.svg" className="w-6" alt="💭" />
-        </li>
-        <li>
-          <img src="https://assets.vercel.com/twemoji/1f615.svg" className="w-6" alt="💭" />
-        </li>
-        <li>
-          <img src="https://assets.vercel.com/twemoji/1f600.svg" className="w-6" alt="💭" />
-        </li>
-        <li>
-          <img src="https://assets.vercel.com/twemoji/1f929.svg" className="w-6" alt="💭" />
-        </li>
-      </ul>
+const Feedback = () => {
+  const { pathname } = useRouter();
+
+  const withIndex =
+    pathname === '/' ||
+    pathname === '/running-react-native-everywhere' ||
+    pathname === '/building-for-large-screens' ||
+    pathname === '/studies';
+  
+  return (
+    <div className="flex items-end justify-between">
+      <div className="flex flex-col">
+        <h5>Was this helpful?</h5>
+        <ul className="mt-2 grid grid-cols-4 gap-6">
+          <li>
+            <img src="https://assets.vercel.com/twemoji/1f62d.svg" className="w-6" alt="💭" />
+          </li>
+          <li>
+            <img src="https://assets.vercel.com/twemoji/1f615.svg" className="w-6" alt="💭" />
+          </li>
+          <li>
+            <img src="https://assets.vercel.com/twemoji/1f600.svg" className="w-6" alt="💭" />
+          </li>
+          <li>
+            <img src="https://assets.vercel.com/twemoji/1f929.svg" className="w-6" alt="💭" />
+          </li>
+        </ul>
+      </div>
+      <a
+        href={`https://github.com/yamankatby/react-native-beyond-mobile/edit/website/pages${
+          pathname + (withIndex ? '/index' : '')
+        }.md`}
+        className="hover:underline"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Edit this article on GitHub
+      </a>
     </div>
-    <a href="" className="hover:underline">
-      Edit this article on GitHub
-    </a>
-  </div>
-);
+  );
+};
 
 const Pager = () => {
   const { pathname } = useRouter();
