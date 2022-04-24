@@ -60,7 +60,7 @@ const SidebarItem = ({ title, href }) => (
 const SidebarGroup = ({ items }) => (
   <>
     <h3 className="text-sm uppercase text-gray-500">{items[0].title}</h3>
-    <ul className="border-l pl-6 pb-2.5">
+    <ul className="border-l pl-6 pb-2.5 dark:border-gray-800">
       {items.slice(1).map((item) => (
         <li key={item.href} className="mt-2.5">
           <SidebarItem title={item.title} href={items[0].href + item.href} />
@@ -73,7 +73,7 @@ const SidebarGroup = ({ items }) => (
 const Sidebar = () => {
   const { setTheme, resolvedTheme } = useTheme();
   return (
-    <aside className="flex max-w-xs flex-1 flex-col justify-between border-r px-6 pb-6">
+    <aside className="flex max-w-xs flex-1 flex-col justify-between border-r px-6 pb-6 dark:border-gray-800">
       <ul>
         {index.map((item) => (
           <li key={item.href || item[0].href} className="mt-6">
@@ -111,11 +111,13 @@ const Header = () => (
   <header className="mb-6 flex items-center justify-between">
     <nav>
       <ul className="flex">
-        <li className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 px-2">🏠</li>
+        <li className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">🏠</li>
         <ChevronRightIcon className="mx-1 w-5" />
-        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2">Running React Native everywhere</li>
+        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">
+          Running React Native everywhere
+        </li>
         <ChevronRightIcon className="mx-1 w-5" />
-        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2">Mobile</li>
+        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2 dark:bg-gray-800">Mobile</li>
       </ul>
     </nav>
     <button className="h-9 rounded-lg bg-indigo-500 px-2 text-white">Subscribe</button>
@@ -214,9 +216,9 @@ export default function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </main>
           <Feedback />
-          <hr className="my-6" />
+          <hr className="my-6 dark:border-gray-800" />
           <Pager />
-          <hr className="my-6" />
+          <hr className="my-6 dark:border-gray-800" />
           <Footer />
         </div>
       </div>
