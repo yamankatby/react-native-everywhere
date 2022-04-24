@@ -86,11 +86,12 @@ const Sidebar = () => {
           className="flex items-center"
           href="https://github.com/yamankatby/react-native-beyond-mobile"
           target="_blank"
+          rel="noreferrer"
         >
           <GitHub />
           <span className="ml-2">GitHub</span>
         </a>
-        <a className="ml-6 flex items-center" href="https://twitter.com/yamankatby" target="_blank">
+        <a className="ml-6 flex items-center" href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer">
           <Twitter />
           <span className="ml-2">Twitter</span>
         </a>
@@ -184,24 +185,42 @@ const Pager = () => (
 );
 
 const Footer = () => (
-  <footer className="flex flex-col items-center">
+  <footer className="flex items-end justify-between">
+    <div>
+      <p>
+        Apr 1, 2022 at{' '}
+        <a href="https://invertase.io" target="_blank" rel="noreferrer">
+          Invertase
+        </a>
+      </p>
+      <p className="mt-2">
+        Made with ❤️ by{' '}
+        <a href="https://twitter.com/yamankatby" target="_blank" rel="noreferrer">
+          Yaman KATBY
+        </a>
+      </p>
+    </div>
     <ul className="flex">
       <li>
-        <a href="https://github.com/yamankatby/react-native-beyond-mobile">Source code</a>
+        <a href="https://github.com/yamankatby/react-native-beyond-mobile" target="_blank" rel="noreferrer">
+          Source code
+        </a>
       </li>
-      <li className="ml-10">
-        <a href="https://github.com/yamankatby/react-native-beyond-mobile/issues/new/choose">Report issue</a>
+      <li className="ml-6">
+        <a
+          href="https://github.com/yamankatby/react-native-beyond-mobile/issues/new/choose"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Report issue
+        </a>
       </li>
-      <li className="ml-10">
-        <a href="https://github.com/yamankatby/react-native-beyond-mobile/discussions">Ask question</a>
+      <li className="ml-6">
+        <a href="https://github.com/yamankatby/react-native-beyond-mobile/discussions" target="_blank" rel="noreferrer">
+          Ask question
+        </a>
       </li>
     </ul>
-    <p className="mt-3">
-      Apr 1, 2022 at <a href="https://invertase.io">Invertase</a>
-    </p>
-    <p className="mt-3">
-      Made with ❤️ by <a href="https://twitter.com/yamankatby">Yaman KATBY</a>
-    </p>
   </footer>
 );
 
