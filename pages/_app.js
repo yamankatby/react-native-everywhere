@@ -130,17 +130,35 @@ const Sidebar = () => {
   );
 };
 
-const Header = () => (
-  <nav className="mb-6">
-    <ul className="flex">
-      <li>🏠</li>
-      <ChevronRightIcon className="mx-3 w-5" />
-      <li>Running React Native everywhere</li>
-      <ChevronRightIcon className="mx-3 w-5" />
-      <li>Mobile</li>
-    </ul>
-  </nav>
-);
+const Breadcrumbs = () => {
+  const { pathname } = useRouter();
+
+  const segments = pathname.split('/').filter(Boolean);
+
+  return (
+    <nav className="mb-6">
+      <ul className="flex">
+        <li>
+          <Link href="/">
+            <a className="hover:underline">🏠</a>
+          </Link>
+        </li>
+        {segments.map((_, index) => {
+          const href = '/' + segments.slice(0, index + 1).join('/');
+          const route = getRoutes().find((route) => route.href === href);
+          return (
+            <li key={href} className="flex">
+              <ChevronRightIcon className="mx-3 w-5" />
+              <Link href={href}>
+                <a className="hover:underline">{route?.title}</a>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+};
 
 const Feedback = () => (
   <div className="flex items-end justify-between">
@@ -271,7 +289,7 @@ export default function MyApp({ Component, pageProps }) {
       <div className="flex justify-center">
         <Sidebar />
         <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
-          <Header />
+          <Breadcrumbs />
           <main className="prose max-w-none flex-1 dark:prose-invert">
             <Component {...pageProps} />
           </main>
