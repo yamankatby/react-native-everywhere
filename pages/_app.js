@@ -93,6 +93,21 @@ const Sidebar = () => (
   </aside>
 );
 
+const Header = () => (
+  <header className="mb-6 flex items-center justify-between">
+    <nav>
+      <ul className="flex">
+        <li className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-100 px-2">🏠</li>
+        <ChevronRightIcon className="mx-1 w-5" />
+        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2">Running React Native everywhere</li>
+        <ChevronRightIcon className="mx-1 w-5" />
+        <li className="flex h-9 items-center rounded-lg bg-gray-100 px-2">Mobile</li>
+      </ul>
+    </nav>
+    <button className="h-9 rounded-lg bg-indigo-500 px-2 text-white">Subscribe</button>
+  </header>
+);
+
 const Feedback = () => (
   <div className="flex items-end justify-between">
     <div className="flex flex-col">
@@ -179,6 +194,7 @@ export default function MyApp({ Component, pageProps }) {
     <div className="flex justify-center">
       <Sidebar />
       <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
+        <Header />
         <main className="prose max-w-none flex-1">
           <Component {...pageProps} />
         </main>
