@@ -30,7 +30,7 @@ Another proper solution for macOS is to run the iOS app on Mac Catalyst. Mac Cat
 
 Currently, there is no well-maintained project that can be used to run React Native apps (natively) on Linux (there is a couple of proofs-of-concept out there). However, as mentioned before, React Native apps can run on the web, and this takes us to the next target, [**Electron**](https://electronjs.org/).
 
-[**Electron**](https://electronjs.org/) is a framework for building cross-platform desktop applications (runs on macOS, Windows, and Linux) using web technologies. It's stable and has been there for a while (you're probably using at least one or more apps built with it).
+[**Electron**](https://electronjs.org/) is a framework for building cross-platform desktop applications (runs on Windows, macOS, and Linux) using web technologies. It's stable and has been there for a while (you're probably using at least one or more apps built with it).
 
 [image here]
 
