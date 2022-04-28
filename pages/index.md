@@ -26,7 +26,7 @@ To run React Native apps on the desktop, we can use a project called [**React Na
 
 Another proper solution for macOS is to run the iOS app on Mac Catalyst. Mac Catalyst is a powerful project by Apple made to run iPad apps (natively) on macOS (Big Sur and later). Nothing special to React Native here. However, this means that any iOS app running on the iPad can run on macOS as well (by making small changes).
 
-**But, what about Linux 🐧?**
+**What about Linux 🐧?**
 
 Currently, there is no well-maintained project that can be used to run React Native apps (natively) on Linux (there is a couple of proofs-of-concept out there). However, as mentioned before, React Native apps can run on the web, and this takes us to the next target, [**Electron**](https://electronjs.org/).
 
