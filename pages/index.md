@@ -1,6 +1,6 @@
 # Introduction
 
-I love React Native, who doesn't?! (Actually, I have an answer 👉 "🐦'ers" 😜). It's a fantastic library to write an app once (using the great library, [React](https://reactjs.org/)) and run it on both 🍎 iOS and 🤖 Android. Wait a second, what if it's more than that?!!
+I love React Native, who doesn't?! (actually, I have an answer 👉 "🐦'ers" 😜). It's a fantastic library to write an app once (using the great library, [React](https://reactjs.org/)) and run it on both 🍎 iOS and 🤖 Android. Wait a second, what if it's more than that?!!
 
 ## React Native everywhere
 
