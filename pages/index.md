@@ -30,34 +30,25 @@ Another proper solution for macOS is to run the iOS app on Mac Catalyst. Mac Cat
 
 Currently, there is no well-maintained project that can be used to run React Native apps (natively) on Linux (there is a couple of proofs-of-concept out there). However, as mentioned before, React Native apps can run on the web, and this takes us to the next target, [**Electron**](https://electronjs.org/).
 
-[**Electron**](https://electronjs.org/) is a framework for building cross-platform desktop applications (runs on Windows, macOS, and Linux) using web technologies. It's stable and has been there for a while (you're probably using at least one or more apps built with it).
+[**Electron**](https://electronjs.org/) is a framework for building cross-platform desktop apps (runs on Windows, macOS, and Linux) using web technologies. It's stable and has been there for a while (you're probably using at least one or more apps built with it).
 
-[image here]
+![Apps users love, built with Electron](/electron-showcase-apps.png)
 
-Till now we have:
+Now we talked about web and desktop, let's talk about the smaller version of them, **browser extensions** and **menubar apps**.
 
-- Android and iOS - (By default)
-- Web
-- Windows and macOS
-- Mac Catalyst
-- Electron (macOS, Windows, and Linux)
-
-What else? 🤔 You are right **web extensions** and **menubar apps**. Let's continue 💨
-
-Creating web extensions will not be a problem as we can run React Native apps on the web. Simply we will follow the steps in the official documentations.
+**Browser extensions** will be an easy task since we already have an app running on the web. Just follow the steps in the official documentations, and everything is ready to go 💨.
 
 - [Getting started with Chrome extensions](https://developer.chrome.com/docs/extensions/mv3/getstarted/)
 - [Your first Firefox extension](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension)
 
-For **menubar apps** there is a project called [menubar](https://github.com/maxogden/menubar) (that simple 😃) can be used to create menubar desktop applications with [**Electron**](https://electronjs.org/). That's mean we have to run:
+For **menubar apps**, we will use a project called [**menubar**](https://github.com/maxogden/menubar) (that simple 😃), used to create **menubar apps** (runs on Windows, macOS, and Linux) using [**Electron**](https://electronjs.org/).
 
-React Native 👉 React Native for web 👉 Electron 👉 Menubar Apps
+Finally, **Android TV** and **tvOS**:
 
-😱
+> TV devices support, has been implemented with the intention of making existing React Native applications "just work" with few or no changes needed in the JavaScript code.
 
-I mean, there's a lot to do but believe me it's worth it. We can now add 2 more platforms to our target list.
+This is stated in the documentation of the [**React Native TVOS**](https://github.com/react-native-tvos/react-native-tvos) project that we will be using to run React Native apps on **Android TV** and **tvOS**.
 
-- Browser Extensions (Chrome, Firefox, and Chromium-based browsers such as Microsoft Edge, Opera, Vivaldi)
-- Menubar Apps (macOS, Windows, and Linux)
+Now that we know we can run React Native apps everywhere, what's next?
 
-Now that we know we can run React Native apps anywhere, what's next?
+## Build for every screen size
