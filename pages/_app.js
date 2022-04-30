@@ -7,9 +7,9 @@ import '../styles/globals.css';
 import { useMemo } from 'react';
 
 const index = [
-  { title: 'Getting Started', href: '/' },
+  { title: 'Introduction', href: '/' },
   [
-    { title: 'Running React Native everywhere', href: '/running-react-native-everywhere' },
+    { title: 'React Native everywhere', href: '/react-native-everywhere' },
     { title: 'Overview', href: '' },
     { title: 'Mobile (Android and iOS)', href: '/mobile' },
     { title: 'Web', href: '/web' },
@@ -19,7 +19,7 @@ const index = [
     { title: 'Menubar App', href: '/menubar-app' },
   ],
   [
-    { title: 'Building for large screens', href: '/building-for-large-screens' },
+    { title: 'Build for every screen size', href: '/build-for-every-screen-size' },
     { title: 'Overview', href: '' },
     { title: 'Responsive Design', href: '/responsive-design' },
     { title: 'Layouts', href: '/layouts' },
@@ -147,8 +147,8 @@ const Feedback = () => {
 
   const withIndex =
     pathname === '/' ||
-    pathname === '/running-react-native-everywhere' ||
-    pathname === '/building-for-large-screens' ||
+    pathname === '/react-native-everywhere' ||
+    pathname === '/build-for-every-screen-size' ||
     pathname === '/studies';
 
   return (
