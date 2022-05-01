@@ -51,6 +51,28 @@ Finally, **Android TV** and **tvOS**:
 
 This is stated in the documentation of the [React Native TVOS](https://github.com/react-native-tvos/react-native-tvos) project that we will be using to run React Native apps on **Android TV** and **tvOS**.
 
+
+
+- Android and iOS (Out of the box)
+- Web
+- Desktop - Windows and macOS
+- Mac Catalyst
+- Electron - Windows, macOS, and Linux
+- Browser Extensions - Chrome (and [Chromium-based browsers](https://wikipedia.org/wiki/Chromium_(web_browser))) and Firefox
+- Menubar Apps
+- Android TV and tvOS
+
 Now that we know we can run React Native apps everywhere, what's next?
 
 ## Build for every screen size
+
+Since our app will work on different devices with different screen dimensions, we have to design it in such a way that it fits any screen size. This is not an easy task (as you might think) since there is no a standard API to use (like iOS and lately Android) so we have to take a look about how every platform handles this natively
+
+_some important moments (imo) in the life of the responsive design on different platforms:_
+
+- On May 25, 2010, Ethan Marcotte used the term "responsive design" for the first time.
+- On Jan 31, 2012, Bootstrap 2 was released with the 12-column grid system utils.
+- On June 5, 2019, during the Apple WWDC keynote, Craig Federighi made [the announcement of the first version of the new iPadOS](https://youtu.be/psL_5RIBqnY?t=3805).
+- On Oct 27, 2021, “It's time to break away from designing for a 16x9 portrait phone app and start building UI responsively” — [Diana Wong from Android Team In the Android Dev Summit 2021](https://youtu.be/WZgR5Yf1iq8?t=1913) while introducing a new [set of tools and APIs made to make developing for large screens easier](https://developer.android.com/large-screens).
+
+## Respecting the Platform
