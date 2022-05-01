@@ -51,7 +51,7 @@ Finally, **Android TV** and **tvOS**:
 
 This is stated in the documentation of the [React Native TVOS](https://github.com/react-native-tvos/react-native-tvos) project that we will be using to run React Native apps on **Android TV** and **tvOS**.
 
-
+Now, we have _targets_ 🎯 for:
 
 - Android and iOS (Out of the box)
 - Web
@@ -62,7 +62,7 @@ This is stated in the documentation of the [React Native TVOS](https://github.co
 - Menubar Apps
 - Android TV and tvOS
 
-Now that we know we can run React Native apps everywhere, what's next?
+Now that we know we can run React Native apps "everywhere", what's next?
 
 ## Build for every screen size
 
