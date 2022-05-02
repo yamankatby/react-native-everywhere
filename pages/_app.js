@@ -308,21 +308,8 @@ const Footer = () => (
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
-      <div className="flex justify-center">
-        <Sidebar />
-        <div className="flex min-h-screen max-w-3xl flex-1 flex-col p-6">
-          <Breadcrumbs />
-          <main className="prose max-w-none flex-1 dark:prose-invert">
-            <Component {...pageProps} />
-          </main>
-          <Feedback />
-          <hr className="my-6 dark:border-gray-800" />
-          <Pager />
-          <hr className="my-6 dark:border-gray-800" />
-          <Footer />
-        </div>
-      </div>
-    </ThemeProvider>
+    <main className="prose prose-lg mx-auto my-10 dark:prose-invert">
+      <Component {...pageProps} />
+    </main>
   );
 }

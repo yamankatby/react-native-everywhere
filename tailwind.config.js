@@ -10,6 +10,18 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.zinc
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              color: colors.blue['600'],
+              '&:hover': {
+                color: colors.blue['700'],
+              }
+            }
+          }
+        }
       }
     }
   },

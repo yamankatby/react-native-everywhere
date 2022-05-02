@@ -3641,9 +3641,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-beyond-mobile@workspace:.":
+"react-native-everywhere@workspace:.":
   version: 0.0.0-use.local
-  resolution: "react-native-beyond-mobile@workspace:."
+  resolution: "react-native-everywhere@workspace:."
   dependencies:
     "@heroicons/react": ^1.0.6
     "@mdx-js/loader": ^2.1.1
