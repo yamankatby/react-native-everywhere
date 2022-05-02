@@ -34,7 +34,7 @@ Currently, there is no well-maintained project that can be used to run React Nat
 
 [Electron](https://electronjs.org/) is a framework for building cross-platform desktop apps (runs on Windows, macOS, and Linux) using web technologies. It's stable and has been there for a while (you're probably using at least one or more apps built with it).
 
-![Apps users love, built with Electron](/electron-showcase-apps.png)
+![Apps users love, built with Electron](/electron-showcase-apps.jpg)
 
 Now we talked about web and desktop, let's talk about the smaller version of them, **browser extensions** and **menubar apps**.
 
