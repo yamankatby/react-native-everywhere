@@ -81,3 +81,5 @@ So in this section, We'll take a look at:
 We want our apps to run everywhere while maintaining the spirit of the platform they run on. This is what makes React "**Native**" different from other frameworks that simply run a website within an in-app browser (like Ionic).
 
 Something like font sizes, colors, the behavior of some specific components (like touchables), and sometimes the entire design must be defined separately for each platform.
+
+You are right... nor this will be an easy task. However, it is (mostly) possible.
