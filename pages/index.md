@@ -76,10 +76,10 @@ So in this section, We'll take a look at:
 
 ## Respecting the Platform
 
-> "Be together. Not the same." — Android slogan
+> Be together. Not the same. — Android slogan
 
 We want our apps to run everywhere while maintaining the spirit of the platform they run on. This is what makes React "**Native**" different from other frameworks that simply run a website within an in-app browser (like Ionic).
 
 Something like font sizes, colors, the behavior of some specific components (like touchables), and sometimes the entire design must be defined separately for each platform.
 
-You are right... nor this will be an easy task. However, it is (mostly) possible.
+You are right... nor this will be an easy task. However, it is (mostly) possible if you separate enough time and effort for it.
