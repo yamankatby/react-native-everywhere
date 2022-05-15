@@ -1,6 +1,6 @@
 ---
 title: Acknowledgments
-sidebar_index: 3
+sidebar_index: 4
 ---
 
 # Acknowledgments
