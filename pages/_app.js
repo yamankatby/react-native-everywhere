@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ThemeProvider, useTheme } from 'next-themes';
+import { useTheme } from 'next-themes';
 import cx from 'classnames';
 import { ChevronLeftIcon, ChevronRightIcon, MoonIcon, SunIcon } from '@heroicons/react/outline';
 import '../styles/globals.css';
@@ -56,27 +56,27 @@ const SidebarItem = ({ title, href }) => {
   );
 };
 
-const SidebarGroup = ({ items }) => (
+const SidebarGroup = ({ category }) => (
   <>
-    <h3 className="text-sm uppercase text-gray-500">{items[0].title}</h3>
+    <h3 className="text-sm uppercase text-gray-500">{category.label}</h3>
     <ul className="border-l pl-6 pb-2.5 dark:border-gray-800">
-      {items.slice(1).map((item) => (
-        <li key={item.href} className="mt-2.5">
-          <SidebarItem title={item.title} href={items[0].href + item.href} />
+      {category.items.map((item) => (
+        <li key={item.slug} className="mt-2.5">
+          <SidebarItem title={item.title} href={item.slug} />
         </li>
       ))}
     </ul>
   </>
 );
 
-const Sidebar = () => {
+const Sidebar = ({sidebar}) => {
   const { setTheme, resolvedTheme } = useTheme();
   return (
     <aside className="flex max-w-xs flex-1 flex-col justify-between border-r px-6 pb-6 dark:border-gray-800">
       <ul>
-        {index.map((item) => (
-          <li key={item.href || item[0].href} className="mt-6">
-            {Array.isArray(item) ? <SidebarGroup items={item} /> : <SidebarItem title={item.title} href={item.href} />}
+        {sidebar.map((item) => (
+          <li key={item.slug || item.items[0].slug} className="mt-6">
+            {item.type === 'category' ? <SidebarGroup category={item} /> : <SidebarItem title={item.title} href={item.slug} />}
           </li>
         ))}
       </ul>
@@ -308,8 +308,11 @@ const Footer = () => (
 
 export default function MyApp({ Component, pageProps }) {
   return (
+    <div className="flex">
+    <Sidebar sidebar={pageProps.sidebar}/>
     <main className="prose prose-lg mx-auto my-10 dark:prose-invert">
       <Component {...pageProps} />
     </main>
+    </div>
   );
 }
