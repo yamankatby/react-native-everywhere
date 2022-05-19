@@ -1,5 +1,8 @@
 ---
-title: Windows and macOS
+title: Running React Native on Windows and macOS
+description: Getting started with React Native on Windows and macOS.
+label: Windows and macOS
+sidebar_index: 4
 ---
 
-# Windows and macOS
+# Running React Native on Windows and macOS

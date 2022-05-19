@@ -12,7 +12,6 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
 export async function getStaticProps(context) {
   const postsDir = await getPostsDir();
   const items = postsDir.flatMap((item) => (item.type === 'category' ? item.items : [item]));
@@ -22,7 +21,7 @@ export async function getStaticProps(context) {
   const current = items[currentIndex];
   const source = await serialize(current.markdown);
 
-  return { props: { sidebar: postsDir, source } };
+  return { props: { sidebar: postsDir, source, meta: current } };
 }
 
 export default function Post(props) {

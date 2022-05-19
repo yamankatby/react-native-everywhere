@@ -1,5 +1,7 @@
 ---
-title: Overview
+title: Running React Native everywhere
+description: Running React Native on Android, iOS, the web, browser extension, Windows, macOS, Electron, and menubar apps.
+label: Overview
 sidebar_index: 0
 ---
 

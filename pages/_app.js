@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import cx from 'classnames';
 import '../styles/globals.css';
+import Head from 'next/head';
 
 const SidebarItem = ({ title, href }) => {
   const { pathname } = useRouter();
@@ -25,9 +26,27 @@ const SidebarCategory = ({ category }) => (
   </>
 );
 
-export default function MyApp({ Component, pageProps: { sidebar, ...rest } }) {
+export default function MyApp({ Component, pageProps: { meta, sidebar, ...rest } }) {
   return (
     <div className="flex justify-center">
+      <Head>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:image" content="LINK TO THE IMAGE FILE" />
+        <meta property="og:url" content="PERMALINK" />
+        <meta property="og:site_name" content="React Native everywhere" />
+
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content="LINK TO IMAGE" />
+        <meta name="twitter:site" content="@yamankatby" />
+        <meta name="twitter:creator" content="@yamankatby" />
+      </Head>
+
       <div>
         <aside className="h-screen w-80 fixed overflow-y-scroll">
           <ul>
