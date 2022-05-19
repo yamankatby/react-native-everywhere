@@ -1,10 +1,10 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
-import { getDir } from '../utils';
+import { getPostsDir } from '../utils';
 
 export async function getStaticPaths() {
-  const dir = await getDir();
-  const items = dir.flatMap((item) => (item.type === 'category' ? item.items : [item]));
+  const postsDir = await getPostsDir();
+  const items = postsDir.flatMap((item) => (item.type === 'category' ? item.items : [item]));
   return {
     paths: items.map((item) => ({
       params: { slug: item.href.slice(1).split('/') },
@@ -14,15 +14,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const dir = await getDir();
-  const items = dir.flatMap((item) => (item.type === 'category' ? item.items : [item]));
+  const postsDir = await getPostsDir();
+  const items = postsDir.flatMap((item) => (item.type === 'category' ? item.items : [item]));
 
   const href = '/' + (context.params.slug?.join('/') ?? '');
   const currentIndex = items.findIndex((item) => item.href === href);
   const current = items[currentIndex];
   const source = await serialize(current.markdown);
 
-  return { props: { sidebar: dir, source } };
+  return { props: { sidebar: postsDir, source } };
 }
 
 export default function Post(props) {

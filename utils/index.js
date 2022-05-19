@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 
-export const readDir = async (dirPath, config) => {
+const readDir = async (dirPath, config) => {
   const { categoryFileName, sortBy, pathToHref } = config;
 
   const files = await fs.readdir(dirPath, { withFileTypes: true });
@@ -45,7 +45,7 @@ export const readDir = async (dirPath, config) => {
   return items.sort((a, b) => (a[sortBy] ?? 0) - (b[sortBy] ?? 0));
 };
 
-export const getDir = async () => {
+export const getPostsDir = async () => {
   const dirPath = path.resolve(process.cwd(), 'posts');
   return await readDir(dirPath, {
     categoryFileName: '_category_.json',
