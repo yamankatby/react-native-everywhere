@@ -17,8 +17,8 @@ const SidebarCategory = ({ category }) => (
     <h3 className="text-sm uppercase text-gray-500">{category.label}</h3>
     <ul className="border-l pl-6 pb-2.5 dark:border-gray-800">
       {category.items.map((item) => (
-        <li key={item.slug} className="mt-2.5">
-          <SidebarItem title={item.title} href={item.slug} />
+        <li key={item.href} className="mt-2.5">
+          <SidebarItem title={item.label} href={item.href} />
         </li>
       ))}
     </ul>
@@ -32,11 +32,11 @@ export default function MyApp({ Component, pageProps: { sidebar, ...rest } }) {
         <aside className="h-screen w-80 fixed overflow-y-scroll">
           <ul>
             {sidebar.map((item) => (
-              <li key={item.slug || item.items[0].slug} className="mt-6">
+              <li key={item.href || item.items[0].href} className="mt-6">
                 {item.type === 'category' ? (
                   <SidebarCategory category={item} />
                 ) : (
-                  <SidebarItem title={item.title} href={item.slug} />
+                  <SidebarItem title={item.label} href={item.href} />
                 )}
               </li>
             ))}
