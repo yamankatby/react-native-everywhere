@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps: { sidebar, ...rest } }) {
       <div>
         <aside className="h-screen w-80 fixed overflow-y-scroll">
           <ul>
-            {sidebar.map((item) => (
+            {sidebar?.map((item) => (
               <li key={item.href || item.items[0].href} className="mt-6">
                 {item.type === 'category' ? (
                   <SidebarCategory category={item} />
