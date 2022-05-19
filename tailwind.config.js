@@ -15,9 +15,10 @@ module.exports = {
         DEFAULT: {
           css: {
             a: {
-              color: colors.blue['600'],
+              color: '#3992FF',
+              textDecoration: 'none',
               '&:hover': {
-                color: colors.blue['700'],
+                textDecoration: 'underline',
               }
             }
           }
