@@ -1,6 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import { getPostsDir } from '../utils';
+import Layout from "../components/layout";
 
 export async function getStaticPaths() {
   const postsDir = await getPostsDir();
@@ -27,3 +28,5 @@ export async function getStaticProps(context) {
 export default function Post(props) {
   return <MDXRemote {...props.source} />;
 }
+
+Post.getLayout = (page, props) => <Layout {...props}>{page}</Layout>
